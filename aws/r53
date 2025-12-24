@@ -1,0 +1,47 @@
+1) What is Amazon Route 53?
+--> Amazon Route 53 is a DNS (Domain Name System) service provided by AWS.
+It is used to register domains, route traffic to resources, and perform health checks.
+
+2) What are the main features of Route 53?
+Domain registration
+DNS routing
+Health checks and failover
+Traffic management
+
+3) What is a Hosted Zone in Route 53?
+A hosted zone is a container for DNS records of a domain.
+Public Hosted Zone – for internet-facing domains
+Private Hosted Zone – for VPC internal domains
+
+4) What are DNS record types supported by Route 53?
+A – Maps domain to IPv4 address
+AAAA – Maps domain to IPv6 address
+CNAME – Maps one domain to another
+Alias – AWS-specific record (ELB, S3, CloudFront)
+
+5) What is an Alias record and why is it used?
+Maps a domain to AWS resources (ELB, CloudFront, S3)
+Does not charge for DNS queries
+Supports root domain (example.com)
+
+6) What routing policies are available in Route 53?
+Simple
+Weighted
+Latency-based
+Failover
+Geolocation
+
+7) What is Latency-based routing?
+Latency routing sends user traffic to the AWS region with the lowest latency, improving performance.
+
+8) What is Health Check in Route 53?
+Health checks monitor the health of endpoints (EC2, ELB, IP).
+If an endpoint fails, Route 53 can redirect traffic to a healthy resource.
+
+9) How does Route 53 support high availability?
+Route 53 provides high availability using:
+Health checks
+Failover routing policy
+Multi-region traffic routing
+
+
