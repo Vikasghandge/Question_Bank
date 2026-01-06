@@ -1,1 +1,64 @@
+1) What happens if two developers run terraform apply at the same time on the same module? 
+--> “If two developers run terraform apply at the same time on the same module, it can cause state 
+file conflict and infrastructure inconsistency. To prevent this, we use a remote backend with state locking 
+like S3 with DynamoDB and allow terraform apply only through CI/CD pipelines.”
+
+------------------------------------------------------------------------------------------------------------------------------
+2) Changing the AMI ID in a Launch Template forces ASG recreation. How do you achieve zero (or near-zero) downtime?
+--> Auto Scaling Group (ASG) launches new EC2 instances
+--> Old instances will be terminated
+-->    Use Rolling Update with ASG
+--> ASG launches new instances with new AMI
+--> Once New instances become healthy
+--> Only then old instances are terminated one by one
+Optional Use create before Destory policy.
+
+-----------------------------------------------------------------------------------------------------------------------------
+3) Terraform wants to recreate an entire RDS instance due to a minor parameter change, but you must avoid downtime. What do you do?
+ --> use terraform plan command to see what changes will happen
+ --> Use ignore_changes in Terraform Lifecycle
+
+  lifecycle {
+  ignore_changes = [parameter_group_name]
+}
+------------------------------------------------------------------------------------------------------------------------------
+4) After terraform import of an EC2 instance, every terraform plan shows changes even though AWS hasn’t changed. Why?
+--> terraform import only updates the Terraform state file
+--> It does NOT update or generate your Terraform code
+--> “Terraform import syncs state, not configuration, so mismatched or missing attributes cause repeated plan changes.”
+-------------------------------------------------------------------------------------------------------------------------------
+5) Terraform marks a resource as tainted and keeps recreating it on every apply. How do you find and fix the cause?
+--> Tainted resource = Terraform thinks the resource is bad or inconsistent
+--> So on every terraform apply, Terraform: Destory resources and Recreate it.
+--> “Repeated tainting usually comes from failed provisioners or drift, and the fix is to correct the root cause, not just untaint.”
+---------------------------------------------------------------------------------------------------------------------------------------
+6) what is terraform taint ?
+“Terraform taint is used to mark a resource for recreation. On the next apply, Terraform destroys the existing resource and creates
+a new one, even if the configuration has not changed.”
+--------------------------------------------------------------------------------------------------------------------------------
+7) now tell how to create servers for diffrent env like dev stage and prod i want dev use only t2micro stage can have t2.meduium and prod can have 
+t2.xtra.large how to design in realtime.
+--> In real-time, we use a single reusable Terraform module and pass instance type as a variable. Each environment provides its own value, 
+so dev uses t2.micro, stage uses t2.medium, and prod uses t2.xlarge.”
+
+8) You want to deploy the same infrastructure across 10 AWS accounts from one code base. How do you design it?
+ --> “I design a single Terraform code base using reusable modules and deploy it to multiple AWS accounts by using provider alias with assume role.
+Each account has its own variables and state file, but the infrastructure code remains the same.”
+
+9) Terraform plan is slow because it queries thousands of resources. How do you optimize performance?
+--> Use ignore_changes for Noisy Fields
+lifecycle {
+  ignore_changes = [tags, user_data]
+}
+
+10) A sensitive variable (like a password) accidentally got committed to Git. How do you prevent this in the future?
+
+--> Rotate the secret immediately
+--> Revoke the old credential
+--> Remove it from Git history
+Store secrets in: AWS Secrets Manager, AWS SSM Parameter Store, HashiCorp Vault.
+
+
+
+
 
