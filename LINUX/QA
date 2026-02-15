@@ -1,0 +1,4 @@
+1) Your monitoring alert says the disk is 100% full. You run du -sh * to find big files, but it shows only 50GB used on a 100GB disk. Where is the "missing" 50GB?
+2) You are logged in as the root user. You try to delete a file using rm -rf file.txt, but you get an error: "Operation not permitted." How is this possible if you are root?
+3) A user reports they cannot SSH into a server. What are your troubleshooting steps ?
+4) 
