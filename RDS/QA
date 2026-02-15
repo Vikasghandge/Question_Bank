@@ -1,0 +1,22 @@
+1) WHAT IS RDS ?
+2) HOW TO SECURE THE RDS ?
+3) WHAT IS MUTI AZ IN RDS ?
+4) WHAT WILL DO TO MULTI AZ IF PRIMARY DATABASE FAILS ?
+5) INSTANCE TYPES IN THE RDS ?
+6) WHAT IS READ REPLICAS IN THE RDS ?
+7) CAN WE CHANGE INSTANCE TYPE OF THE RUNNNING DATABASE ?
+8) TYPES OF RDS BACKUPS IN AWS ?
+9) Your application has a heavy "Read" load, and users are complaining about slow page loads. How do you fix this without affecting the "Write" performance?
+10) A junior engineer accidentally deleted a production database. You have no manual snapshots. How do you recover the data to a specific point in time from 2 hours ago?
+11) A client requires that all data must be encrypted "at rest" (stored) and "in transit" (moving). How do you configure this foran existing unencrypted RDS instance?
+12) Your Dev environment RDS is costing too much over the weekend when no one is working. How do you reduce costs without deleting the database?
+13) Your marketing team is running a massive 1-hour sale. You expect 10x the normal traffic. What is the fastest way to scale your RDS instance?
+14) Your company is based in Mumbai (ap-south-1), but you just launched in the USA. Users in New York are complaining that the app is slow 
+    because the database queries have to travel across the ocean. How do you solve this?
+15) Your developers want to test a massive new update using the actual data from the production database, but they must not slow down the production DB or risk corrupting it.
+How do you give them the data?
+16) You are moving an on-premise MySQL database to AWS RDS. The database is 1TB, and the business only allows 30 minutes of downtime.
+A standard "Export/Import" will take hours.How do you migrate?
+17) 
+
+
