@@ -2,4 +2,4 @@
 2) When would you use a "Memory Optimized" vs. a "Compute Optimized" instance?
 3) What is the difference between a Security Group and a NACL?
 4) What is an "Elastic IP" and why would you use it over a Public IP?
-5) 
+5) How do you achieve "High Availability" for an application running on EC2?
